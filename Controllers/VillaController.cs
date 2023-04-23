@@ -46,6 +46,11 @@ namespace ApiRest.Controllers
                 return BadRequest(ModelState);
             }
 
+            if (VillaStore.villaList.FirstOrDefault(v => v.Name.ToLower() == villaDTO.Name.ToLower()) != null) {
+                ModelState.AddModelError("NameExists", "Villa with this name already exists");
+                return BadRequest(ModelState);
+            }
+
             if (villaDTO == null) {
                 return BadRequest();
             }
