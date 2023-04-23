@@ -10,6 +10,12 @@ namespace ApiRest.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class VillaController : ControllerBase {
+    public class VillaController : ControllerBase
+    {
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult<IEnumerable<VillaDTO>> GetVillas() {
+            return Ok(VillaStore.villaList);
+        }
     }
 }
