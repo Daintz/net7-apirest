@@ -42,6 +42,10 @@ namespace ApiRest.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<VillaDTO> postVilla([FromBody] VillaDTO villaDTO) {
+            if (!ModelState.IsValid) {
+                return BadRequest(ModelState);
+            }
+
             if (villaDTO == null) {
                 return BadRequest();
             }
