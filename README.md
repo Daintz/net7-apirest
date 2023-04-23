@@ -21,4 +21,4 @@ Also, if you have any questions or problems, feel free to open an issue on this 
 ## About the Author
 I'm a programming enthusiast and I'm currently learning how to build REST APIs in .NET 7. I love sharing my knowledge with other developers and I'm excited to help others learn how to build REST APIs with this project.
 
-If you are interested in learning more about my skills and experience, please check out my profile on [GitHub](https://github.com/youruser) or contact me directly through my [website](https://your- website-website.com).
+If you are interested in learning more about my skills and experience, please check out my profile on [GitHub](https://github.com/Daintz).
