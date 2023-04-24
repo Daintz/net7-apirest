@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj": {}
+    "c:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj": {
+    "c:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
+        "projectUniqueName": "c:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
         "projectName": "ApiRest",
-        "projectPath": "C:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
+        "projectPath": "c:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
         "packagesPath": "C:\\Users\\danic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\obj\\",
+        "outputPath": "c:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\danic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -21,7 +21,6 @@
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +39,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.JsonPatch": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.5, )"
