@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ApiRest.Models.DTO;
 using ApiRest.Data;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace ApiRest.Controllers
 {
@@ -94,6 +95,24 @@ namespace ApiRest.Controllers
 
             var villa = VillaStore.villaList.FirstOrDefault(v => v.Id == id);
             villa.Name = villaDTO.Name;
+
+            return NoContent();
+        }
+
+        [HttpPatch("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult updatePartialVilla(int id, JsonPatchDocument<VillaDTO> patchDTO) {
+            if(patchDTO == null || id == 0) {
+                return BadRequest();
+            }
+
+            var villa = VillaStore.villaList.FirstOrDefault(v => v.Id == id);
+            patchDTO.ApplyTo(villa, ModelState);
+
+            if(!ModelState.IsValid) {
+                return BadRequest(ModelState);
+            }
 
             return NoContent();
         }

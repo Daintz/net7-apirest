@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
+      "projectUniqueName": "C:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
       "projectName": "ApiRest",
-      "projectPath": "c:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
+      "projectPath": "C:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
       "packagesPath": "C:\\Users\\danic\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\obj\\",
+      "outputPath": "C:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\danic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -708,6 +708,7 @@
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

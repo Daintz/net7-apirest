@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NbmczxWeUvfvrUm+PNEElBLNnFNUtcKOXaVmbgOUXnxdtm3XBXe/Yaq/2S/wp0Mz2Ngd6ryvDzyJzdYVhvFrRA==",
+  "dgSpecHash": "2uptokiHty6zcMJrwgZFnW+fYmsndIn3Tn0I3VRKy2tEUN6oXAJ1zXqaYlFl3+q4e2X5zEXYWGG7DtH1Y94mrQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
+  "projectFilePath": "C:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danic\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\7.0.5\\microsoft.aspnetcore.jsonpatch.7.0.5.nupkg.sha512",
     "C:\\Users\\danic\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\7.0.5\\microsoft.aspnetcore.mvc.newtonsoftjson.7.0.5.nupkg.sha512",

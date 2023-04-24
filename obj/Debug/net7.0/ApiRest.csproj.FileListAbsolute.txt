@@ -31,3 +31,7 @@ C:\Users\danic\OneDrive\Escritorio\CURSOS\Proyectos\ApirestC#\ApiRest\obj\Debug\
 C:\Users\danic\OneDrive\Escritorio\CURSOS\Proyectos\ApirestC#\ApiRest\obj\Debug\net7.0\ApiRest.pdb
 C:\Users\danic\OneDrive\Escritorio\CURSOS\Proyectos\ApirestC#\ApiRest\obj\Debug\net7.0\ApiRest.genruntimeconfig.cache
 C:\Users\danic\OneDrive\Escritorio\CURSOS\Proyectos\ApirestC#\ApiRest\obj\Debug\net7.0\ref\ApiRest.dll
+C:\Users\danic\OneDrive\Escritorio\CURSOS\Proyectos\ApirestC#\ApiRest\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\danic\OneDrive\Escritorio\CURSOS\Proyectos\ApirestC#\ApiRest\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\danic\OneDrive\Escritorio\CURSOS\Proyectos\ApirestC#\ApiRest\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\danic\OneDrive\Escritorio\CURSOS\Proyectos\ApirestC#\ApiRest\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
