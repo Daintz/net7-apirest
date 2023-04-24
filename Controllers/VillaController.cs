@@ -13,9 +13,15 @@ namespace ApiRest.Controllers
     [Route("api/[controller]")]
     public class VillaController : ControllerBase
     {
+        private readonly ILogger<VillaController> _logger;
+        public VillaController(ILogger<VillaController> logger) {
+            _logger = logger;
+        }
+
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<VillaDTO>> getVillas() {
+            _logger.LogInformation("Get all Villas");
             return Ok(VillaStore.villaList);
         }
 
@@ -25,6 +31,7 @@ namespace ApiRest.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<VillaDTO> getVilla(int id) {
             if(id == 0) {
+                _logger.LogError("Error to fetch villa with id" + id);
                 return BadRequest();
             }
 
