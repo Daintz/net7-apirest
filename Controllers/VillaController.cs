@@ -14,8 +14,10 @@ namespace ApiRest.Controllers
     public class VillaController : ControllerBase
     {
         private readonly ILogger<VillaController> _logger;
-        public VillaController(ILogger<VillaController> logger) {
+        private readonly ApplicationDbContext _db;
+        public VillaController(ILogger<VillaController> logger, ApplicationDbContext db) {
             _logger = logger;
+            _db = db;
         }
 
         [HttpGet]
