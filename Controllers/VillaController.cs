@@ -37,7 +37,7 @@ namespace ApiRest.Controllers
                 return BadRequest();
             }
 
-            var villa = VillaStore.villaList.FirstOrDefault(v => v.Id == id);
+            var villa = _db.Villas.FirstOrDefault(v => v.Id == id);
 
             if(villa == null)
             {
