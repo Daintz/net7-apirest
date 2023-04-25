@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cim5kwvG1iGp6qrm/w3F8rHb6OYlySZsF6ex3Z3MijAsOAipXS2l+ppNRfA2WfwZ47WX4pL/rJ9JPntUq6nwDg==",
+  "dgSpecHash": "Xs8Am+1/OGF+qNRJ68Cc8elxlsPUfeOqQ3eiYzABARsV5/5DkcAdy0kETy5kIF8fwhtWt0qRfPnyhHDDS7H2OQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
+  "projectFilePath": "C:\\Users\\danic\\OneDrive\\Escritorio\\CURSOS\\Proyectos\\ApirestC#\\ApiRest\\ApiRest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danic\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\danic\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
