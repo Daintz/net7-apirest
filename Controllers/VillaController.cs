@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ApiRest.Models.DTO;
 using ApiRest.Data;
 using Microsoft.AspNetCore.JsonPatch;
+using ApiRest.Models;
 
 namespace ApiRest.Controllers
 {
@@ -51,12 +52,12 @@ namespace ApiRest.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<VillaDTO> postVilla([FromBody] VillaDTO villaDTO) {
+        public async Task<ActionResult<VillaDTO>> postVilla([FromBody] Villa villaDTO) {
             if(!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
 
-            if(VillaStore.villaList.FirstOrDefault(v => v.Name.ToLower() == villaDTO.Name.ToLower()) != null) {
+            if(_db.Villas.FirstOrDefault(v => v.Name.ToLower() == villaDTO.Name.ToLower()) != null) {
                 ModelState.AddModelError("NameExists", "Villa with this name already exists");
                 return BadRequest(ModelState);
             }
@@ -69,8 +70,8 @@ namespace ApiRest.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
 
-            villaDTO.Id = VillaStore.villaList.OrderByDescending(v => v.Id).FirstOrDefault().Id + 1;
-            VillaStore.villaList.Add(villaDTO);
+            _db.Villas.Add(villaDTO);
+            await _db.SaveChangesAsync();
 
             return CreatedAtRoute("getVilla", new {id = villaDTO.Id}, villaDTO);
         }
