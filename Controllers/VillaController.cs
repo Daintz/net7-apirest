@@ -80,19 +80,20 @@ namespace ApiRest.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult deleteVilla(int id) {
+        public async Task<ActionResult<Villa>> deleteVilla(int id) {
             if(id == 0) {
                 return BadRequest();
             }
 
-            var villa = VillaStore.villaList.FirstOrDefault(v => v.Id == id);
+            var villa = await _db.Villas.FindAsync(id);
             if(villa == null) {
                 return NotFound();
             }
 
-            VillaStore.villaList.Remove(villa);
+            _db.Villas.Remove(villa);
+            await _db.SaveChangesAsync();
 
-            return NoContent();
+            return villa;
         }
 
         [HttpPut("{id:int}")]
