@@ -12,5 +12,18 @@ namespace ApiRest.Data
         }
 
         public DbSet<Villa> Villas {get; set;}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
+            modelBuilder.Entity<Villa>().HasData(
+                new Villa(){
+                    Id=1,
+                    Name="Villa Real"
+                },
+                new Villa(){
+                    Id = 2,
+                    Name = "Vista a la playa"
+                }
+            );
+        }
     }
 }
