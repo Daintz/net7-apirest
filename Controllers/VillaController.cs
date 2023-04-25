@@ -24,7 +24,7 @@ namespace ApiRest.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<VillaDTO>> getVillas() {
             _logger.LogInformation("Get all Villas");
-            return Ok(VillaStore.villaList);
+            return Ok(_db.Villas.ToList());
         }
 
         [HttpGet("id:int", Name="getVilla")]
