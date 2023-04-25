@@ -10,8 +10,10 @@ This repository contains a sample application for creating a REST API in .NET 7.
 1. Clone this repository to your local machine
 2. Open the project in your IDE
 3. Build the project using the `dotnet build` command
-4. Run the application using the `dotnet run` command
-5. Open your browser and go to the address `https://localhost:5001/swagger/index.html` to view the API documentation and test the endpoints.
+4. Install dotnet tools using the `dotnet tool install --global dotnet-ef` command
+5. Build database in SqlServer using the `dotnet ef migrations add AddDB` command then use `dotnet ef database update`
+6. Run the application using the `dotnet run` command
+7. Open your browser and go to the address `https://localhost:5001/swagger/index.html` to view the API documentation and test the endpoints.
 
 ## How to use this project to learn
 This project is a great way to learn how to build a REST API using .NET 7. The code is well commented and clearly structured, making it easy to understand even for those with no prior .NET experience.
