@@ -7,6 +7,7 @@ using ApiRest.Models.DTO;
 using ApiRest.Data;
 using Microsoft.AspNetCore.JsonPatch;
 using ApiRest.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiRest.Controllers
 {
@@ -99,15 +100,15 @@ namespace ApiRest.Controllers
         [HttpPut("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult updateVilla(int id, [FromBody] VillaDTO villaDTO) {
+        public async Task<IActionResult> updateVilla(int id,[FromBody] Villa villaDTO) {
             if(villaDTO == null || id != villaDTO.Id) {
                 return BadRequest();
             }
 
-            var villa = VillaStore.villaList.FirstOrDefault(v => v.Id == id);
-            villa.Name = villaDTO.Name;
+            _db.Villas.Update(villaDTO);
+            await _db.SaveChangesAsync();
 
-            return NoContent();
+            return CreatedAtRoute("getVilla", new {id = villaDTO.Id}, villaDTO);
         }
 
         [HttpPatch("{id:int}")]
