@@ -114,17 +114,21 @@ namespace ApiRest.Controllers
         [HttpPatch("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult updatePartialVilla(int id, JsonPatchDocument<VillaDTO> patchDTO) {
+        public async Task<IActionResult> updatePartialVilla(int id, JsonPatchDocument<Villa> patchDTO) {
             if(patchDTO == null || id == 0) {
                 return BadRequest();
             }
 
-            var villa = VillaStore.villaList.FirstOrDefault(v => v.Id == id);
+            var villa = _db.Villas.FirstOrDefault(v => v.Id == id);
             patchDTO.ApplyTo(villa, ModelState);
+
 
             if(!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
+
+            _db.Villas.Update(villa);
+            await _db.SaveChangesAsync();
 
             return NoContent();
         }
