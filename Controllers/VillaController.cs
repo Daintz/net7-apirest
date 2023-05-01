@@ -53,7 +53,7 @@ namespace ApiRest.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<VillaDTO>> postVilla([FromBody] VillaDTO villaDTO) {
+        public async Task<ActionResult<VillaDTO>> postVilla([FromBody] VillaCreateDTO villaDTO) {
             if(!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
@@ -67,10 +67,6 @@ namespace ApiRest.Controllers
                 return BadRequest();
             }
 
-            if(villaDTO.Id > 0) {
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-
             Villa model = new()
             {
                 Name = villaDTO.Name
@@ -79,7 +75,7 @@ namespace ApiRest.Controllers
             _db.Villas.Add(model);
             await _db.SaveChangesAsync();
 
-            return CreatedAtRoute("getVilla", new {id = villaDTO.Id}, villaDTO);
+            return CreatedAtRoute("getVilla", new {id = model.Id}, model);
         }
 
         [HttpDelete("{id:int}")]

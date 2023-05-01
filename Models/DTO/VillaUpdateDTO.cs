@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiRest.Models.DTO
 {
-    public class VillaCreateDTO
+    public class VillaUpdateDTO
     {
         [Required]
         [MaxLength(30)]
