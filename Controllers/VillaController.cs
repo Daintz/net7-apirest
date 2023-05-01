@@ -73,7 +73,6 @@ namespace ApiRest.Controllers
 
             Villa model = new()
             {
-                Id = villaDTO.Id,
                 Name = villaDTO.Name
             };
 
