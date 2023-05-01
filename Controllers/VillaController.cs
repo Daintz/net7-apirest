@@ -130,7 +130,7 @@ namespace ApiRest.Controllers
                 return BadRequest();
             }
 
-            var villa = _db.Villas.FirstOrDefault(v => v.Id == id);
+            var villa = _db.Villas.AsNoTracking().FirstOrDefault(v => v.Id == id);
 
             VillaDTO villaDTO = new()
             {
