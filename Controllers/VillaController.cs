@@ -121,14 +121,14 @@ namespace ApiRest.Controllers
         [HttpPatch("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> updatePartialVilla(int id, JsonPatchDocument<VillaDTO> patchDTO) {
+        public async Task<IActionResult> updatePartialVilla(int id, JsonPatchDocument<VillaUpdateDTO> patchDTO) {
             if(patchDTO == null || id == 0) {
                 return BadRequest();
             }
 
             var villa = _db.Villas.AsNoTracking().FirstOrDefault(v => v.Id == id);
 
-            VillaDTO villaDTO = new()
+            VillaUpdateDTO villaDTO = new()
             {
                 Id = villa.Id,
                 Name = villa.Name
