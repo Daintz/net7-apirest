@@ -53,7 +53,7 @@ namespace ApiRest.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<VillaDTO>> postVilla([FromBody] Villa villaDTO) {
+        public async Task<ActionResult<VillaDTO>> postVilla([FromBody] VillaDTO villaDTO) {
             if(!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
@@ -71,7 +71,13 @@ namespace ApiRest.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
 
-            _db.Villas.Add(villaDTO);
+            Villa model = new()
+            {
+                Id = villaDTO.Id,
+                Name = villaDTO.Name
+            };
+
+            _db.Villas.Add(model);
             await _db.SaveChangesAsync();
 
             return CreatedAtRoute("getVilla", new {id = villaDTO.Id}, villaDTO);
@@ -81,7 +87,7 @@ namespace ApiRest.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<Villa>> deleteVilla(int id) {
+        public async Task<ActionResult<VillaDTO>> deleteVilla(int id) {
             if(id == 0) {
                 return BadRequest();
             }
@@ -94,18 +100,24 @@ namespace ApiRest.Controllers
             _db.Villas.Remove(villa);
             await _db.SaveChangesAsync();
 
-            return villa;
+            return NoContent();
         }
 
         [HttpPut("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> updateVilla(int id,[FromBody] Villa villaDTO) {
+        public async Task<IActionResult> updateVilla(int id,[FromBody] VillaDTO villaDTO) {
             if(villaDTO == null || id != villaDTO.Id) {
                 return BadRequest();
             }
 
-            _db.Villas.Update(villaDTO);
+            Villa model = new()
+            {
+                Id = villaDTO.Id,
+                Name = villaDTO.Name
+            };
+
+            _db.Villas.Update(model);
             await _db.SaveChangesAsync();
 
             return CreatedAtRoute("getVilla", new {id = villaDTO.Id}, villaDTO);
@@ -114,18 +126,31 @@ namespace ApiRest.Controllers
         [HttpPatch("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> updatePartialVilla(int id, JsonPatchDocument<Villa> patchDTO) {
+        public async Task<IActionResult> updatePartialVilla(int id, JsonPatchDocument<VillaDTO> patchDTO) {
             if(patchDTO == null || id == 0) {
                 return BadRequest();
             }
 
             var villa = _db.Villas.FirstOrDefault(v => v.Id == id);
-            patchDTO.ApplyTo(villa, ModelState);
+
+            VillaDTO villaDTO = new()
+            {
+                Id = villa.Id,
+                Name = villa.Name
+            };
+
+            patchDTO.ApplyTo(villaDTO, ModelState);
 
 
             if(!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
+
+            Villa model = new()
+            {
+                Id = villaDTO.Id,
+                Name = villaDTO.Name
+            };
 
             _db.Villas.Update(villa);
             await _db.SaveChangesAsync();
